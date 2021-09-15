@@ -10,12 +10,12 @@ df = df.head(10000)[(df["language"] == "English") & (df["content"].str.contains(
 # data annotation
 df['trump_mention'] = np.where(df['content'].str.contains(r'\bTrump\b'), 'T', 'F')
 
-# write filtered & annotated data to new tsv file
+# write filtered & annotated data to data.tsv file
 header = ["tweet_id", "publish_date", "content", "trump_mention"]
-df.to_csv('../test/dataset.tsv', sep = '\t', columns = header, encoding='utf-8')
+df.to_csv('./dataset.tsv', sep = '\t', columns = header, encoding='utf-8')
 
-# analyze and write data to new tsv file
+# analyze and write data to result.tsv
 result = {'result': ['frac-trump-mentions'],
           'value': [float('%.3f'%(df["trump_mention"].value_counts(normalize=True)["T"]))]}
 result = pd.DataFrame(result, columns = ['result', 'value'])
-result.to_csv('../test/results.tsv', sep = '\t')
+result.to_csv('./results.tsv', sep = '\t')
