@@ -1,0 +1,1 @@
+There are repeated tweets with exactly the same content, and some are tweeted between a relatively short time interval. Due to the repetition, whether it be a mistake or on purpose by the user, we are essentially counting the same tweet multiple times.
