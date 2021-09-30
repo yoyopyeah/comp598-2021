@@ -21,19 +21,19 @@ base = {
     } 
 }
 
-total = 0
+total = -1
 
 with open ('../data/clean_dialog.csv') as data:
     reader = csv.reader(data, delimiter=',')
     for row in reader:
+        total += 1
         for pony in base["count"]:
             if pony in row[2].lower():
                 base["count"][pony] += 1
-                total += 1
     for pony in base["verbosity"]:
         base["verbosity"][pony] = round(base["count"][pony] / total, 2)
 
-
+print(total)
 
 # result = json.dumps(base)
 
