@@ -1,5 +1,6 @@
 import json
 import csv
+import sys
 
 # base structure
 base = {
@@ -23,7 +24,7 @@ base = {
 
 total = -1
 
-with open ('../data/clean_dialog.csv') as data:
+with open (sys.argv[3]) as data:
     reader = csv.reader(data, delimiter=',')
     for row in reader:
         total += 1
@@ -34,7 +35,7 @@ with open ('../data/clean_dialog.csv') as data:
         base["verbosity"][pony] = round(base["count"][pony] / total, 2)
 
 # write to output file
-f = open("../output.json", "w")
+f = open(sys.argv[2], "w")
 f.write(json.dumps(base, indent=1))
 f.close()
 
