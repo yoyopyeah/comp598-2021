@@ -6,7 +6,7 @@ LINES=$(cat $1 | wc -l)
 # error when line < 10000
 if [[ LINES -lt 1000 ]];
 then 
-    echo "Error! The input file is smaller than 10,000 lines." 1>&2  
+    echo "Error! The input file needs to have at least 10,000 lines." 1>&2  
     exit 1
 else
     echo $LINES
