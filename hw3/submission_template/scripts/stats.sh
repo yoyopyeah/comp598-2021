@@ -19,5 +19,5 @@ head -n 1 $1
 echo $(tail -n 10000 $1 | grep -i "potus" | wc -l)
 
 # "word"
-echo $(sed -n '100,200p' < $1 | grep "fake" | wc -l)
+echo $(sed -n '100,200p' < $1 | grep -w "fake" | wc -l)
 
