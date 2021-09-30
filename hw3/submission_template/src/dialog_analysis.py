@@ -33,14 +33,7 @@ with open ('../data/clean_dialog.csv') as data:
     for pony in base["verbosity"]:
         base["verbosity"][pony] = round(base["count"][pony] / total, 2)
 
-print(total)
-
-# result = json.dumps(base)
-
-# with open ('../output.json', 'w') as outfile:
-#     json.dump(base, outfile)
-#     print(json.dumps(base, indent=1))
-
+# write to output file
 f = open("../output.json", "w")
 f.write(json.dumps(base, indent=1))
 f.close()
