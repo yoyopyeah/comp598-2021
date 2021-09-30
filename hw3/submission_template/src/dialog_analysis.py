@@ -28,7 +28,7 @@ with open ('../data/clean_dialog.csv') as data:
     for row in reader:
         total += 1
         for pony in base["count"]:
-            if pony in row[2].lower():
+            if pony == row[2].lower():
                 base["count"][pony] += 1
     for pony in base["verbosity"]:
         base["verbosity"][pony] = round(base["count"][pony] / total, 2)
