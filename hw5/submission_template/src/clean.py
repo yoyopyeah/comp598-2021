@@ -61,6 +61,7 @@ def validate_tags(x):
     if "tags" in line:
         line["tags"] = [word for line in line["tags"] for word in line.split()]
     return line["tags"]
+    # return json.dumps(line)
 
 def main():
     # set up arg parser
@@ -85,10 +86,11 @@ def main():
         
         if not validate_count(line): continue
 
-        validate_tags(line)
+        line = validate_tags(line)
 
         # print("success")
-        outfile.write(json.dumps(line) + '\n')
+        # outfile.write(json.dumps(line) + '\n')
+        outfile.write(line + '\n')
 
 
     infile.close()
